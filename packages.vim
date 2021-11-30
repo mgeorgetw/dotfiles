@@ -13,8 +13,7 @@ command! PackClean  packadd minpac | source $MYVIMRC | call minpac#clean()
 command! PackStatus packadd minpac | call minpac#status()
 
 " Initiate Plugins {{{
-
-" set packpath^=~/.vim
+set packpath^=~/.vim
 packadd minpac
 
 if !exists('g:loaded_minpac')
@@ -24,52 +23,65 @@ endif
 call minpac#init()
 " minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
 call minpac#add('k-takata/minpac', {'type': 'opt'})
+
+" General enhancements
 call minpac#add('tpope/vim-commentary')
+call minpac#add('suy/vim-context-commentstring')
 call minpac#add('tpope/vim-dispatch')
 call minpac#add('radenling/vim-dispatch-neovim')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-haml')
-call minpac#add('tpope/vim-markdown')
 call minpac#add('tpope/vim-obsession')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
-call minpac#add('vim-airline/vim-airline')
-call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('mileszs/ack.vim')
 call minpac#add('jiangmiao/auto-pairs')
-call minpac#add('ctrlpvim/ctrlp.vim')
-" call minpac#add('junegunn/fzf', { 'do': { -> fzf#install() } })
-" call minpac#add('junegunn/fzf.vim')
 call minpac#add('rhysd/conflict-marker.vim')
 call minpac#add('mbbill/undotree')
 call minpac#add('reedes/vim-litecorrect')
 call minpac#add('reedes/vim-wordy')
 call minpac#add('mattn/webapi-vim')
-call minpac#add('suy/vim-context-commentstring')
 call minpac#add('majutsushi/tagbar')
 call minpac#add('godlygeek/tabular')
-call minpac#add('yssource/python.vim')
-call minpac#add('elzr/vim-json')
-call minpac#add('groenewege/vim-less')
-call minpac#add('pangloss/vim-javascript')
-call minpac#add('jelera/vim-javascript-syntax')
-call minpac#add('isruslan/vim-es6')
-" call minpac#add('mxw/vim-jsx')
-call minpac#add('chemzqm/vim-jsx-improve')
-call minpac#add('kchmck/vim-coffee-script')
-call minpac#add('hail2u/vim-css3-syntax')
-call minpac#add('mattn/emmet-vim')
-call minpac#add('nikvdp/ejs-syntax')
-call minpac#add('vim-scripts/applescript.vim')
-call minpac#add('xolox/vim-misc')
 call minpac#add('skywind3000/asyncrun.vim')
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('brglng/vim-im-select')  " 解決中文輸入法切換問題
+call minpac#add('mattn/emmet-vim')
 
-" Coloschemes
+" Python
+call minpac#add('yssource/python.vim')
+
+" Search
+call minpac#add('mileszs/ack.vim')
+call minpac#add('ctrlpvim/ctrlp.vim')
+" call minpac#add('junegunn/fzf', { 'do': { -> fzf#install() } })
+" call minpac#add('junegunn/fzf.vim')
+
+" Markdown
+call minpac#add('tpope/vim-markdown')
+
+" Javascript
+call minpac#add('nikvdp/ejs-syntax')
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('chemzqm/vim-jsx-improve')
+call minpac#add('elzr/vim-json')
+call minpac#add('leafgarland/typescript-vim')
+" call minpac#add('jelera/vim-javascript-syntax')
+" call minpac#add('isruslan/vim-es6')
+" call minpac#add('kchmck/vim-coffee-script')
+
+" CSS
+call minpac#add('hail2u/vim-css3-syntax')
+call minpac#add('groenewege/vim-less')
+
+" Apple
+call minpac#add('vim-scripts/applescript.vim')
+
+" Coloschemes and themes
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('NLKNguyen/papercolor-theme')
 call minpac#add('morhetz/gruvbox')
 
