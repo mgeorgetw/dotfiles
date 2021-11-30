@@ -55,7 +55,8 @@ call minpac#add('groenewege/vim-less')
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('jelera/vim-javascript-syntax')
 call minpac#add('isruslan/vim-es6')
-call minpac#add('mxw/vim-jsx')
+" call minpac#add('mxw/vim-jsx')
+call minpac#add('chemzqm/vim-jsx-improve')
 call minpac#add('kchmck/vim-coffee-script')
 call minpac#add('hail2u/vim-css3-syntax')
 call minpac#add('mattn/emmet-vim')
@@ -116,13 +117,13 @@ let g:user_emmet_settings = {
 " CoC - Intellisense
 " List of coc extensions
 let g:coc_global_extensions = [
-            \'coc-highlight',
-            \'coc-json',
             \'coc-css',
-            \'coc-html',
-            \'coc-tsserver',
             \'coc-eslint',
+            \'coc-highlight',
+            \'coc-html',
+            \'coc-json',
             \'coc-prettier',
+            \'coc-tsserver',
             \]
 " TextEdit might fail if hidden is not set.
 set hidden
