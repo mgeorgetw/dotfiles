@@ -47,6 +47,7 @@ call minpac#add('skywind3000/asyncrun.vim')
 call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('nelstrom/vim-visual-star-search')
+call minpac#add('airblade/vim-gitgutter')
 call minpac#add('brglng/vim-im-select')  " 解決中文輸入法切換問題
 call minpac#add('mattn/emmet-vim')
 
@@ -82,8 +83,8 @@ call minpac#add('vim-scripts/applescript.vim')
 " Coloschemes and themes
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
-call minpac#add('NLKNguyen/papercolor-theme')
-call minpac#add('morhetz/gruvbox')
+call minpac#add('NLKNguyen/papercolor-theme', {'type': 'opt'})
+call minpac#add('morhetz/gruvbox', {'type': 'opt'})
 
 """ Plugin configurations
 " Airline
