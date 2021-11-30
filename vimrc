@@ -237,8 +237,6 @@ set foldnestmax=10      " 10 nested fold max
 " space open/closes folds
 nnoremap <space> za
 set foldmethod=indent   " fold based on indent level
-" Search for visually selected text
-vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 " }}}
 
 " Movement {{{
