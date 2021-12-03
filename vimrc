@@ -122,7 +122,7 @@ if (empty($TMUX))
 endif
 silent! colorscheme gruvbox  " Default theme
 set hidden
-let g:airline_theme='gruvbox'
+" let g:airline_theme='gruvbox'
 set background=light
 " Choose theme according to Mac's dark mode
 " if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
