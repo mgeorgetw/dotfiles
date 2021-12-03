@@ -96,6 +96,9 @@ call minpac#add('morhetz/gruvbox', {'type': 'opt'})
 " let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
 " let g:airline#extensions#tagbar#enabled = 0       " To speed up airline
 
+" Fugitive
+set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
+
 " FZF mappings
 " nnoremap <C-p> :<C-u>FZF<CR>
 
