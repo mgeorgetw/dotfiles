@@ -56,6 +56,7 @@ if has("autocmd")
     autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
     autocmd FileType javascript.jsx setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
     autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+    autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
     " Treat .rss files as XML
     autocmd BufNewFile,BufRead *.rss setfiletype xml
     autocmd BufNewFile,BufRead *.txt setfiletype markdown

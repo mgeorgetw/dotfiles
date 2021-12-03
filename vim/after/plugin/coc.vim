@@ -14,6 +14,7 @@ let g:coc_global_extensions = [
             \'coc-prettier',
             \'coc-tsserver',
             \]
+
 " TextEdit might fail if hidden is not set.
 set hidden
 " Some servers have issues with backup files, see #649.
