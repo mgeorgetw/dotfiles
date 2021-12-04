@@ -20,6 +20,7 @@ Thumbs.db
 # Vim files
 *.swp
 *~
+Session.vim
 
 # Application specific files
 gitconfig

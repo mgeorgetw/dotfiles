@@ -136,3 +136,8 @@ let g:user_emmet_settings = {
                 \   },
                 \}
 
+" Toggle Undotree
+nnoremap <F5> :UndotreeToggle<cr>
+
+" Toggle Tagbar
+nmap <F8> :TagbarToggle<CR>
