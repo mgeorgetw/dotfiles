@@ -1,4 +1,3 @@
-set shell=/usr/local/bin/fish
 filetype plugin indent on
 runtime macros/matchit.vim " Build in 'Match it' extension
 
@@ -32,6 +31,16 @@ augroup END
 if !exists('##TextYankPost')
     map y <Plug>(highlightedyank)
 endif
+
+" Enables persistent undo (except for temporary files)
+set undofile
+if !has('nvim')
+  set undodir=~/.vim/undo
+endif
+augroup vimrc
+  autocmd!
+  autocmd BufWritePre /tmp/* setlocal noundofile
+augroup END
 
 " Spaces and Tabs
 " Use the same symbols as TextMate for tabstops and EOLs
