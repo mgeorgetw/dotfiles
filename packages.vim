@@ -2,9 +2,9 @@
 " automatically when .vimrc is found. However, this might be useful
 " when you execute `vim -u .vimrc` from the command line.
 if &compatible
-    " `:set nocp` has many side effects. Therefore this should be done
-    " only when 'compatible' is set.
-    set nocompatible
+  " `:set nocp` has many side effects. Therefore this should be done
+  " only when 'compatible' is set.
+  set nocompatible
 endif
 
 " Custom commands to update and clean plugins
@@ -113,10 +113,10 @@ let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ 'link': 'some_bad_symbolic_links',
+      \ }
 let g:ctrlp_user_command = 'rg %s --files'        " MacOSX/Linux
 let g:ctrLp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
@@ -125,18 +125,20 @@ let g:ctrLp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 let g:vim_markdown_frontmatter=1
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_conceal = 0
+
 " Lite correct - Lightweight auto-correction for Vim
 augroup litecorrect
-    autocmd!
-    autocmd FileType markdown,mkd call litecorrect#init()
-    autocmd FileType textile call litecorrect#init()
+  autocmd!
+  autocmd FileType markdown,mkd call litecorrect#init()
+  autocmd FileType textile call litecorrect#init()
 augroup END
+
 " Emmit
 let g:user_emmet_settings = {
-            \   'javascript.jsx' : {
-                \       'extends' : 'jsx',
-                \   },
-                \}
+      \   'javascript.jsx' : {
+        \       'extends' : 'jsx',
+        \   },
+        \}
 
 " Toggle Undotree
 nnoremap <F5> :UndotreeToggle<cr>

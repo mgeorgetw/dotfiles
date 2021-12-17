@@ -11,5 +11,6 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  "emmet.includeLanguages": { "javascript": "javascriptreact" }
 }

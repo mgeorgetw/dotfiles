@@ -178,10 +178,6 @@ command CWD cd %:p:h    " CWD = Change to Currently working directory
 
 " Opening files located in the same directory as the current file
 cnoremap <expr> %%  getcmdtype() == ':' ? fnameescape(expand('%:h')).'/' : '%%'
-map <leader>ew :e %%
-map <leader>es :sp %%
-map <leader>ev :vsp %%
-map <leader>et :tabe %%
 
 " Mappings to Quickly Traverse Vim's Buffer Lists
 nnoremap <silent> [b :bprevious <CR>
