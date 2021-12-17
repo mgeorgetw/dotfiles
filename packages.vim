@@ -32,6 +32,7 @@ call minpac#add('tpope/vim-commentary')
 call minpac#add('suy/vim-context-commentstring')
 " call minpac#add('tpope/vim-dispatch')
 " call minpac#add('radenling/vim-dispatch-neovim')
+call minpac#add('tpope/vim-projectionist')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-haml')
 call minpac#add('tpope/vim-obsession')
@@ -53,6 +54,7 @@ call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('brglng/vim-im-select')  " 解決中文輸入法切換問題
 call minpac#add('mattn/emmet-vim')
+call minpac#add('honza/vim-snippets')
 
 " Python
 call minpac#add('yssource/python.vim')

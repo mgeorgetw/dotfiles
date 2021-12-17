@@ -13,7 +13,6 @@ set nrformats= " Enables adding numbers with padding zeroes
 set noimdisable
 autocmd! InsertLeave * set imdisable|set iminsert=0
 autocmd! InsertEnter * set noimdisable|set iminsert=0
-autocmd BufEnter * silent! lcd %:p:h
 " Enable mouse
 if has('mouse')
     set mouse=a
@@ -192,8 +191,8 @@ nnoremap <silent> ]B :blast <CR>
 
 if has('nvim')
     " Getting out of Terminal mode
-    tnoremap <Esc> <C-\><C-n>
-    tnoremap <A-[> <Esc>
+    tnoremap <ESC> <C-\><C-n>
+    tnoremap <A-[> <ESC>
     " Switch between windows
     " Terminal mode:
     tnoremap <M-h> <c-\><c-n><c-w>h
