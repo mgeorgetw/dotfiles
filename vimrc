@@ -312,7 +312,7 @@ command! Marked :silent !open -a Marked.app '%:p'<cr>
 " }}}
 
 " Syntax {{{
-syntax enable	    " enable syntax processing
+" syntax enable	    " enable syntax processing
 " Omni Completion settings
 "set omnifunc=syntaxcomplete#Complete
 "set omnifunc=ale#completion#OmniFunc

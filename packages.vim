@@ -55,6 +55,7 @@ call minpac#add('airblade/vim-gitgutter')
 call minpac#add('brglng/vim-im-select')  " 解決中文輸入法切換問題
 call minpac#add('mattn/emmet-vim')
 call minpac#add('honza/vim-snippets')
+call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
 
 " Python
 call minpac#add('yssource/python.vim')
@@ -69,11 +70,12 @@ call minpac#add('ctrlpvim/ctrlp.vim')
 call minpac#add('tpope/vim-markdown')
 
 " Javascript
-call minpac#add('elzr/vim-json')
-call minpac#add('yuezk/vim-js')
-call minpac#add('leafgarland/typescript-vim')
-call minpac#add('MaxMEllon/vim-jsx-pretty')
-call minpac#add('nikvdp/ejs-syntax')
+" call minpac#add('elzr/vim-json')
+" call minpac#add('yuezk/vim-js')
+" call minpac#add('leafgarland/typescript-vim')
+" call minpac#add('MaxMEllon/vim-jsx-pretty')
+" call minpac#add('nikvdp/ejs-syntax')
+"
 " call minpac#add('pangloss/vim-javascript')
 " call minpac#add('HerringtonDarkholme/yats.vim')
 " call minpac#add('chemzqm/vim-jsx-improve')
@@ -85,6 +87,7 @@ call minpac#add('nikvdp/ejs-syntax')
 " CSS
 call minpac#add('hail2u/vim-css3-syntax')
 call minpac#add('groenewege/vim-less')
+call minpac#add('stephenway/postcss.vim')
 
 " Apple
 call minpac#add('vim-scripts/applescript.vim')
@@ -145,3 +148,33 @@ nnoremap <F5> :UndotreeToggle<cr>
 
 " Toggle Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" nvim-Treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "maintained",
+
+  -- Install languages synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- List of parsers to ignore installing
+  ignore_install = { "" },
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- list of language that will be disabled
+    disable = { "" },
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+  -- incremental_selection = {enable = true},
+  indent = { enable = true },
+}
+EOF
