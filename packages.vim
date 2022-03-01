@@ -67,7 +67,7 @@ call minpac#add('ctrlpvim/ctrlp.vim')
 " call minpac#add('junegunn/fzf.vim')
 
 " Markdown
-call minpac#add('tpope/vim-markdown')
+" call minpac#add('tpope/vim-markdown')
 
 " Javascript
 " call minpac#add('elzr/vim-json')
@@ -85,8 +85,8 @@ call minpac#add('tpope/vim-markdown')
 " call minpac#add('kchmck/vim-coffee-script')
 
 " CSS
-call minpac#add('hail2u/vim-css3-syntax')
-call minpac#add('groenewege/vim-less')
+" call minpac#add('hail2u/vim-css3-syntax')
+" call minpac#add('groenewege/vim-less')
 call minpac#add('stephenway/postcss.vim')
 
 " Apple
@@ -174,7 +174,7 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
-  -- incremental_selection = {enable = true},
+  incremental_selection = { enable = true },
   indent = { enable = true },
 }
 EOF
