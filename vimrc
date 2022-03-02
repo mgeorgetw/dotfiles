@@ -55,64 +55,11 @@ set backspace=indent,eol,start " make backspace work again
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
-    " " Syntax of these languages is fussy over tabs Vs spaces
-    " autocmd FileType make setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
-    " autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    " " Customisations based on house-style (arbitrary)
-    " autocmd FileType html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    " autocmd FileType css setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-    " autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
-    " autocmd FileType javascript.jsx setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
-    " autocmd FileType typescriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab
-    " autocmd FileType ruby setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
     " Treat .rss files as XML
     autocmd BufNewFile,BufRead *.rss setfiletype xml
     autocmd BufNewFile,BufRead *.txt setfiletype markdown
     autocmd BufNewFile,BufRead *.scss setfiletype scss.css
 endif
-
-" " Set tabstop, softtabstop and shiftwidth to the same value
-" command! -nargs=* Stab call Stab()
-" function! Stab()
-"     let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
-"     if l:tabstop > 0
-"         let &l:sts = l:tabstop
-"         let &l:ts = l:tabstop
-"         let &l:sw = l:tabstop
-"     endif
-"     call SummarizeTabs()
-" endfunction
-" function! SummarizeTabs()
-"     try
-"         echohl ModeMsg
-"         echon 'tabstop='.&l:ts
-"         echon ' shiftwidth='.&l:sw
-"         echon ' softtabstop='.&l:sts
-"         if &l:et
-"             echon ' expandtab'
-"         else
-"             echon ' noexpandtab'
-"         endif
-"     finally
-"         echohl None
-"     endtry
-" endfunction
-
-" " Tidying whitespace (http://vimcasts.org/episodes/tidying-whitespace/)
-" function! Preserve(command)
-"     " Preparation: save last search, and cursor position.
-"     let _s=@/
-"     let l = line(".")
-"     let c = col(".")
-"     " Do the business:
-"     execute a:command
-"     " Clean up: restore previous search history, and cursor position
-"     let @/=_s
-"     call cursor(l, c)
-" endfunction
-" nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
-" nmap _= :call Preserve("normal gg=G")<CR>
-" }}}
 
 " UI Layout {{{
 " Apply GUI font only to MacVim because VimR does not like it.
@@ -140,6 +87,7 @@ set background=light
 " else
 "     set background=light
 " endif
+
 set t_Co=256
 set number              " show line numbers
 set relativenumber      " turn on relative line number
@@ -150,14 +98,6 @@ set wildmode=full
 set showmatch           " highlight matching [{()}]
 set splitbelow          " More natural split opening
 set splitright
-
-" Customize Coc colors
-" func! s:my_colors_setup() abort
-"     hi CocInfoSign ctermfg=3 guifg=#808000
-" endfunc
-" augroup colorscheme_coc_setup | au!
-"     au ColorScheme * call s:my_colors_setup()
-" augroup END
 
 " Show relative number in normal mode
 augroup numbertoggle
@@ -313,10 +253,6 @@ command! Marked :silent !open -a Marked.app '%:p'<cr>
 
 " Syntax {{{
 " syntax enable	    " enable syntax processing
-" Omni Completion settings
-"set omnifunc=syntaxcomplete#Complete
-"set omnifunc=ale#completion#OmniFunc
-"set completeopt=menu,preview,noselect,noinsert
 
 " Python
 let g:python_host_prog = '/usr/local/bin/python3'

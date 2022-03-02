@@ -63,8 +63,6 @@ call minpac#add('yssource/python.vim')
 " Search
 call minpac#add('mileszs/ack.vim')
 call minpac#add('ctrlpvim/ctrlp.vim')
-" call minpac#add('junegunn/fzf', { 'do': { -> fzf#install() } })
-" call minpac#add('junegunn/fzf.vim')
 
 " Markdown
 " call minpac#add('tpope/vim-markdown')
@@ -75,14 +73,6 @@ call minpac#add('ctrlpvim/ctrlp.vim')
 " call minpac#add('leafgarland/typescript-vim')
 " call minpac#add('MaxMEllon/vim-jsx-pretty')
 " call minpac#add('nikvdp/ejs-syntax')
-"
-" call minpac#add('pangloss/vim-javascript')
-" call minpac#add('HerringtonDarkholme/yats.vim')
-" call minpac#add('chemzqm/vim-jsx-improve')
-" call minpac#add('peitalin/vim-jsx-typescript')
-" call minpac#add('jelera/vim-javascript-syntax')
-" call minpac#add('isruslan/vim-es6')
-" call minpac#add('kchmck/vim-coffee-script')
 
 " CSS
 " call minpac#add('hail2u/vim-css3-syntax')
@@ -93,23 +83,12 @@ call minpac#add('stephenway/postcss.vim')
 call minpac#add('vim-scripts/applescript.vim')
 
 " Coloschemes and themes
-" call minpac#add('vim-airline/vim-airline')
-" call minpac#add('vim-airline/vim-airline-themes')
 call minpac#add('NLKNguyen/papercolor-theme', {'type': 'opt'})
 call minpac#add('morhetz/gruvbox', {'type': 'opt'})
 
 """ Plugin configurations
-" Airline
-" let g:airline#extensions#tabline#enabled = 1      " Enable the list of buffers
-" let g:airline#extensions#tabline#buffer_nr_show = 1 "Show buffer number
-" let g:airline#extensions#tabline#fnamemod = ':t'  " Show just the filename
-" let g:airline#extensions#tagbar#enabled = 0       " To speed up airline
-
 " Fugitive
 set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
-
-" FZF mappings
-" nnoremap <C-p> :<C-u>FZF<CR>
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'ra'
