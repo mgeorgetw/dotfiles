@@ -13,19 +13,23 @@ set nrformats= " Enables adding numbers with padding zeroes
 set noimdisable
 autocmd! InsertLeave * set imdisable|set iminsert=0
 autocmd! InsertEnter * set noimdisable|set iminsert=0
+
 " Enable mouse
 if has('mouse')
     set mouse=a
 endif
+
 " Live substitution
 if has('nvim')
     set inccommand=split
 endif
+
 " Highlight yanked text
 augroup LuaHighlight
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
+
 " highlightedyank - make it work with older Vim
 if !exists('##TextYankPost')
     map y <Plug>(highlightedyank)
@@ -36,6 +40,7 @@ set undofile
 if !has('nvim')
   set undodir=~/.vim/undo
 endif
+
 augroup vimrc
   autocmd!
   autocmd BufWritePre /tmp/* setlocal noundofile
@@ -44,6 +49,7 @@ augroup END
 " Spaces and Tabs
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
+
 "Invisible character colors
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
@@ -68,6 +74,7 @@ if has("gui_macvim")
     set antialias
     set gcr+=a:blinkon0
 endif
+
 " Enable True Color support
 if (empty($TMUX))
     if (has("nvim"))
@@ -77,9 +84,9 @@ if (empty($TMUX))
         set termguicolors
     endif
 endif
+
 silent! colorscheme gruvbox  " Default theme
 set hidden
-" let g:airline_theme='gruvbox'
 set background=light
 " Choose theme according to Mac's dark mode
 " if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
@@ -187,6 +194,7 @@ xnoremap & :&&<CR>
 set foldenable          " enable folding
 set foldlevelstart=3    " open most folds by default
 set foldnestmax=10      " 10 nested fold max
+
 " space open/closes folds
 nnoremap <space> za
 set foldmethod=indent   " fold based on indent level
@@ -198,6 +206,7 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+
 " highlight last inserted text
 nnoremap gV `[v`]
 " }}}
@@ -206,18 +215,24 @@ nnoremap gV `[v`]
 let mapleader=","       " leader is comma
 " remap comma for reverse character search
 noremap \ ,
+
 " edit vimrc/fish and load vimrc bindings
 nnoremap <leader>vc :vsp ~/.vim/vimrc<CR>
 nnoremap <leader>fc :vsp ~/.config/fish/config.fish<CR>
+
 " reload vim
 nnoremap <leader>rl :so $MYVIMRC<CR>
+
 " go to the previous/next buffer
 nnoremap <leader>p :bp<CR>
 nnoremap <leader>n :bn<CR>
+
 " Close buffer without closing the split window
 nnoremap <leader>d :b#<bar>bd#<CR>
+
 " Toggle invisible characters
 nnoremap <leader>l :set list!<CR>
+
 " Count highlighted matches
 nnoremap <leader>mc :%s///gn<CR>
 " }}}
@@ -225,28 +240,33 @@ nnoremap <leader>mc :%s///gn<CR>
 " Shortcuts {{{
 " Set system clipboard as default
 set clipboard+=unnamedplus
+
 " Copy and paste from system clipboard
 map "*y :w !LANG=en_US.UTF-8 pbcopy<CR><CR>
 map "*p :r !LANG=en_US.UTF-8 pbpaste<CR><CR>
+
 " inoremap <C-v> <ESC>"+pa
 vnoremap <C-c> "*y
 vnoremap <C-x> "*d
+
+" Emulate the system clipboard(only in MacVim)
 if has("gui_macvim")
-    " Emulate the system clipboard(only in MacVim)
     inoremap <D-v> <ESC>"+pa
     vnoremap <D-c> "*y
     vnoremap <D-x> "*d
     " Use Ctrl-TAB to switch between buffers
     nnoremap <C-TAB> :bn<CR>
 endif
+
 " Shortcut to mute highlighting
 nnoremap <silent> <C-l> :<C-u> nohlsearch <CR><C-l>
+
 " Toggle netrw
 nnoremap <C-e> :e.<CR>
+
 " Prettify JSON file using Python
 nmap =j :%!python -m json.tool<CR>
-" Open current document in Typora
-command! Typora :silent !open -a Typora.app '%:p'<cr>
+
 " Open current document in Marked
 command! Marked :silent !open -a Marked.app '%:p'<cr>
 " }}}
@@ -261,34 +281,4 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 " Javascript
 let g:jsx_ext_required = 1 " Allow JSX in normal JS files
-" }}}
-
-" Auto Minification with yuicompressor
-" http://vim.wikia.com/wiki/Auto_execute_yuicompressor {{{
-function Js_css_compress ()
-    let cwd = expand('<afile>:p:h')
-    let nam = expand('<afile>:t:r')
-    let ext = expand('<afile>:e')
-    if -1 == match(nam, '[\._]src$')
-        let minfname = nam.'.min.'.ext
-    else
-        let minfname = substitute(nam, '[\._]src$', '', 'g').'.'.ext
-    endif
-    if ext == 'less'
-        if executable('lessc')
-            cal system( 'lessc '.cwd.'/'.nam.'.'.ext.' &')
-        endif
-    else
-        if filewritable(cwd.'/'.minfname)
-            if ext == 'js' && executable('closure-compiler')
-                cal system( 'closure-compiler --js '.cwd.'/'.nam.'.'.ext.' > '.cwd.'/'.minfname.' &')
-            elseif executable('yuicompressor')
-                cal system( 'yuicompressor '.cwd.'/'.nam.'.'.ext.' > '.cwd.'/'.minfname.' &')
-            endif
-        endif
-    endif
-endfunction
-autocmd FileWritePost,BufWritePost *.js :call Js_css_compress()
-autocmd FileWritePost,BufWritePost *.css :call Js_css_compress()
-autocmd FileWritePost,BufWritePost *.less :call Js_css_compress()
 " }}}
