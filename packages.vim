@@ -87,8 +87,21 @@ call minpac#add('NLKNguyen/papercolor-theme', {'type': 'opt'})
 call minpac#add('morhetz/gruvbox', {'type': 'opt'})
 
 """ Plugin configurations
-" Fugitive
-set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
+" Fugitive and status line
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=\ %{FugitiveStatusline()}\ 
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\ 
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ 
 
 " CtrlP
 let g:ctrlp_working_path_mode = 'ra'
