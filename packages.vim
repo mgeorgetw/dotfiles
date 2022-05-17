@@ -73,6 +73,7 @@ call minpac#add('ctrlpvim/ctrlp.vim')
 " call minpac#add('leafgarland/typescript-vim')
 " call minpac#add('MaxMEllon/vim-jsx-pretty')
 " call minpac#add('nikvdp/ejs-syntax')
+call minpac#add('briancollins/vim-jst')
 
 " CSS
 " call minpac#add('hail2u/vim-css3-syntax')
@@ -141,11 +142,11 @@ nnoremap <F5> :UndotreeToggle<cr>
 " Toggle Tagbar
 nmap <F8> :TagbarToggle<CR>
 
-" nvim-Treesitter
+" " nvim-Treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = "maintained",
+  -- One of "all" or a list of languages
+  ensure_installed = {'css', 'fish', 'html', 'javascript', 'json', 'lua', 'markdown', 'regex', 'scss', 'vim', 'yaml'},
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
