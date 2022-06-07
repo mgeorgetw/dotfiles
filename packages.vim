@@ -52,7 +52,6 @@ call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('airblade/vim-gitgutter')
-call minpac#add('brglng/vim-im-select')  " 解決中文輸入法切換問題
 call minpac#add('mattn/emmet-vim')
 call minpac#add('honza/vim-snippets')
 call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
