@@ -12,5 +12,6 @@
     "typescript",
     "typescriptreact"
   ],
-  "emmet.includeLanguages": { "javascript": "javascriptreact" }
+  "emmet.includeLanguages": { "javascript": "javascriptreact" },
+  "colors.filetypes": ["*"]
 }
