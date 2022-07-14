@@ -120,10 +120,10 @@ augroup END
 
 " Emmit
 let g:user_emmet_settings = {
-      \   'javascript.jsx' : {
-        \       'extends' : 'jsx',
-        \   },
-        \}
+      \  'javascript.jsx' : {
+      \    'extends' : 'jsx',
+      \  },
+      \}
 
 " Toggle Undotree
 nnoremap <F5> :UndotreeToggle<cr>
@@ -135,7 +135,7 @@ nmap <F8> :TagbarToggle<CR>
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   -- One of "all" or a list of languages
-  ensure_installed = {'css', 'fish', 'html', 'javascript', 'json', 'lua', 'markdown', 'regex', 'scss', 'vim', 'yaml'},
+  ensure_installed = {'css', 'fish', 'html', 'javascript', 'json', 'lua', 'markdown', 'regex', 'scss', 'vim', 'yaml', 'python'},
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
