@@ -130,6 +130,9 @@ let g:netrw_liststyle=3   " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\ze\.\S\+'
 
+" Stop netrw from creating unnecessary buffers
+let g:netrw_fastbrowse = 0
+
 " Opening files located in the same directory as the current file
 cnoremap <expr> %%  getcmdtype() == ':' ? fnameescape(expand('%:h')).'/' : '%%'
 
