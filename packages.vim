@@ -61,7 +61,9 @@ call minpac#add('yssource/python.vim')
 
 " Search
 call minpac#add('mileszs/ack.vim')
-call minpac#add('ctrlpvim/ctrlp.vim')
+call minpac#add('nvim-lua/plenary.nvim')
+call minpac#add('nvim-telescope/telescope.nvim', { 'rev': '0.1.x' })
+call minpac#add('nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' })
 
 " Markdown
 " call minpac#add('tpope/vim-markdown')
@@ -102,18 +104,6 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\ 
-
-" CtrlP
-let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-      \ 'file': '\v\.(exe|so|dll)$',
-      \ 'link': 'some_bad_symbolic_links',
-      \ }
-let g:ctrlp_user_command = 'rg %s --files'        " MacOSX/Linux
-let g:ctrLp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " vim-markdown
 " Highlight YAML frontmatter of markdown
