@@ -56,9 +56,6 @@ call minpac#add('mattn/emmet-vim')
 call minpac#add('honza/vim-snippets')
 call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
 
-" Python
-call minpac#add('yssource/python.vim')
-
 " Search
 call minpac#add('mileszs/ack.vim')
 call minpac#add('nvim-lua/plenary.nvim')
