@@ -123,6 +123,13 @@ let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
 command CWD cd %:p:h    " CWD = Change to Currently working directory
 " set autochdir           " working directory is always the same as the file editing
 
+" Configuring Netrw
+" Toggle netrw
+nnoremap <C-e> :e.<CR>
+let g:netrw_liststyle=3   " tree view
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\ze\.\S\+'
+
 " Opening files located in the same directory as the current file
 cnoremap <expr> %%  getcmdtype() == ':' ? fnameescape(expand('%:h')).'/' : '%%'
 
@@ -164,7 +171,7 @@ endif
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 set smartcase           " when uppercase included, search becomes case-sensitive
-"set path+=**            " Search down in subfolders
+set path+=**            " Search down in subfolders
 set wildignore+=**/node_modules/** " Ignores node_modules while searching with :find
 set history=200         " Saves command history up to 200 records
 
@@ -260,9 +267,6 @@ endif
 
 " Shortcut to mute highlighting
 nnoremap <silent> <C-l> :<C-u> nohlsearch <CR><C-l>
-
-" Toggle netrw
-nnoremap <C-e> :e.<CR>
 
 " Prettify JSON file using Python
 nmap =j :%!python -m json.tool<CR>
