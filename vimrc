@@ -128,7 +128,6 @@ command CWD cd %:p:h    " CWD = Change to Currently working directory
 nnoremap <C-e> :e.<CR>
 let g:netrw_liststyle=3   " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',\(^\|\s\s\)\ze\.\S\+'
 
 " Stop netrw from creating unnecessary buffers
 let g:netrw_fastbrowse = 0

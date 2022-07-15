@@ -102,12 +102,6 @@ set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\ 
 
-" vim-markdown
-" Highlight YAML frontmatter of markdown
-let g:vim_markdown_frontmatter=1
-let g:vim_markdown_folding_disabled=1
-let g:vim_markdown_conceal = 0
-
 " Lite correct - Lightweight auto-correction for Vim
 augroup litecorrect
   autocmd!

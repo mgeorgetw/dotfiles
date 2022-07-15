@@ -5,7 +5,6 @@
   "snippets.userSnippetsDirectory": "~/dotfiles/vim/snips",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
-    "markdown",
     "json",
     "javascript",
     "javascriptreact",
@@ -13,5 +12,9 @@
     "typescriptreact"
   ],
   "emmet.includeLanguages": { "javascript": "javascriptreact" },
-  "colors.filetypes": ["*"]
+  "colors.filetypes": ["*"],
+  "markdownlint.config": {
+    "default": true,
+    "line_length": false
+  }
 }
