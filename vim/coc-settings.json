@@ -12,9 +12,5 @@
     "typescriptreact"
   ],
   "emmet.includeLanguages": { "javascript": "javascriptreact" },
-  "colors.filetypes": ["*"],
-  "markdownlint.config": {
-    "default": true,
-    "line_length": false
-  }
+  "colors.filetypes": ["*"]
 }
