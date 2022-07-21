@@ -86,7 +86,6 @@ if (empty($TMUX))
 endif
 
 silent! colorscheme gruvbox  " Default theme
-set hidden
 set background=light
 " Choose theme according to Mac's dark mode
 " if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
