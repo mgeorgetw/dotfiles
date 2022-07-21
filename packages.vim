@@ -71,12 +71,12 @@ call minpac#add('nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' })
 " call minpac#add('leafgarland/typescript-vim')
 " call minpac#add('MaxMEllon/vim-jsx-pretty')
 " call minpac#add('nikvdp/ejs-syntax')
-call minpac#add('briancollins/vim-jst')
+call minpac#add('briancollins/vim-jst') " For JST/EJS syntax
 
 " CSS
 " call minpac#add('hail2u/vim-css3-syntax')
 " call minpac#add('groenewege/vim-less')
-call minpac#add('stephenway/postcss.vim')
+" call minpac#add('stephenway/postcss.vim')
 
 " Apple
 call minpac#add('vim-scripts/applescript.vim')
