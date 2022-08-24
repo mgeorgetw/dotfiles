@@ -82,7 +82,8 @@ call minpac#add('briancollins/vim-jst') " For JST/EJS syntax
 call minpac#add('vim-scripts/applescript.vim')
 
 " Coloschemes and themes
-call minpac#add('morhetz/gruvbox', {'type': 'opt'})
+" call minpac#add('morhetz/gruvbox', {'type': 'opt'})
+call minpac#add('sainnhe/gruvbox-material')
 
 """ Plugin configurations
 " Fugitive and status line
