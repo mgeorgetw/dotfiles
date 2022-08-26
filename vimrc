@@ -206,7 +206,6 @@ set foldlevelstart=3    " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 
 " space open/closes folds
-nnoremap <space> za
 set foldmethod=indent   " fold based on indent level
 " }}}
 
@@ -222,9 +221,8 @@ nnoremap gV `[v`]
 " }}}
 
 " Leader Shortcuts {{{
-let mapleader=","       " leader is comma
-" remap comma for reverse character search
-noremap \ ,
+let mapleader=" "
+nnoremap <SPACE> <Nop>
 
 " edit vimrc/fish and load vimrc bindings
 nnoremap <leader>vc :vsp ~/.vim/vimrc<CR>
