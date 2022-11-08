@@ -287,3 +287,7 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 " Javascript
 let g:jsx_ext_required = 1 " Allow JSX in normal JS files
 " }}}
+
+" Integrations {{{
+let g:ruby_host_prog = '/usr/local/lib/ruby/gems/3.1.0/bin/neovim-ruby-host'
+" }}}
