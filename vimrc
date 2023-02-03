@@ -61,10 +61,10 @@ set backspace=indent,eol,start " make backspace work again
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
-    " Treat .rss files as XML
     autocmd BufNewFile,BufRead *.rss setfiletype xml
     autocmd BufNewFile,BufRead *.txt setfiletype markdown
     autocmd BufNewFile,BufRead *.scss setfiletype scss.css
+    autocmd BufNewFile,BufRead *.ejs setfiletype html
 endif
 
 " UI Layout {{{
