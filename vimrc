@@ -87,7 +87,7 @@ endif
 
 set background=light
 let g:gruvbox_material_foreground = 'original'
-silent! colorscheme gruvbox-material  " Default theme
+silent! colorscheme catppuccin-latte  " Default theme
 
 " Choose theme according to Mac's dark mode
 " if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
