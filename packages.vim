@@ -83,7 +83,7 @@ call minpac#add('vim-scripts/applescript.vim')
 
 " Coloschemes and themes
 " call minpac#add('morhetz/gruvbox', {'type': 'opt'})
-call minpac#add('sainnhe/gruvbox-material')
+" call minpac#add('sainnhe/gruvbox-material')
 call minpac#add('catppuccin/nvim', {'as': 'catppuccin'})
 
 """ Plugin configurations
