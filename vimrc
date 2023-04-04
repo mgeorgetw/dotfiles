@@ -64,7 +64,7 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.rss setfiletype xml
     autocmd BufNewFile,BufRead *.txt setfiletype markdown
     autocmd BufNewFile,BufRead *.scss setfiletype scss.css
-    autocmd BufNewFile,BufRead *.ejs setfiletype html
+    " autocmd BufNewFile,BufRead *.ejs setfiletype html
 endif
 
 " UI Layout {{{
