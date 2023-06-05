@@ -90,20 +90,6 @@ if (empty($TMUX))
     endif
 endif
 
-" Set a colorscheme
-set background=light
-let g:gruvbox_material_foreground = 'original'
-silent! colorscheme catppuccin-latte  " Default theme
-
-" Choose theme according to Mac's dark mode
-" if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-"     set background=dark
-"     silent! colorscheme catppuccin-mocha
-" else
-"     set background=light
-"     silent! colorscheme catppuccin-latte
-" endif
-
 set t_Co=256
 set number              " show line numbers
 set relativenumber      " turn on relative line number
@@ -114,6 +100,20 @@ set wildmode=full
 set showmatch           " highlight matching [{()}]
 set splitbelow          " More natural split opening
 set splitright
+
+" Set a colorscheme
+set background=light
+let g:gruvbox_material_foreground = 'original'
+silent! colorscheme catppuccin  " Default theme
+
+" Choose theme according to Mac's dark mode
+" if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+"     set background=dark
+"     silent! colorscheme catppuccin-mocha
+" else
+"     set background=light
+"     silent! colorscheme catppuccin-latte
+" endif
 
 " Show relative number only in normal mode
 augroup numbertoggle
@@ -287,7 +287,9 @@ command! Marked :silent !open -a Marked.app '%:p'<cr>
 " }}}
 
 " Syntax {{{
-" syntax enable	    " enable syntax processing
+if !has('nvim')
+  syntax enable	    " enable syntax processing
+endif
 
 " Javascript
 let g:jsx_ext_required = 1 " Allow JSX in normal JS files
