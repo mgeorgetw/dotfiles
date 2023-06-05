@@ -116,7 +116,7 @@ nmap <F8> :TagbarToggle<CR>
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   -- One of "all" or a list of languages
-  ensure_installed = {'css', 'bash', 'fish', 'html', 'javascript', 'typescript', 'json', 'lua', 'markdown', 'regex', 'scss', 'vim', 'yaml', 'python'},
+  ensure_installed = {'css', 'bash', 'fish', 'html', 'javascript', 'typescript', 'tsx', 'json', 'lua', 'markdown', 'regex', 'scss', 'vim', 'yaml', 'python'},
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
