@@ -1,4 +1,4 @@
-" Normally this if-block is not needed, because `:set nocp` is done
+" Normally this if-block is not needed, because `:set nocp` is donepacknvim-lua/plenary.nvim
 " automatically when .vimrc is found. However, this might be useful
 " when you execute `vim -u .vimrc` from the command line.
 if &compatible
@@ -48,7 +48,7 @@ call minpac#add('mattn/webapi-vim')
 call minpac#add('majutsushi/tagbar')
 call minpac#add('godlygeek/tabular')
 call minpac#add('skywind3000/asyncrun.vim')
-call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
+" call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('airblade/vim-gitgutter')
@@ -57,6 +57,17 @@ call minpac#add('honza/vim-snippets')
 
 if has('nvim')
   call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
+
+  " Autotag and autopair with nvim-treesitter
+  call minpac#add('windwp/nvim-ts-autotag')
+  call minpac#add('windwp/nvim-autopairs')
+
+  call minpac#add('neovim/nvim-lspconfig')
+  call minpac#add('hrsh7th/nvim-cmp')
+  call minpac#add('hrsh7th/cmp-nvim-lsp')
+  call minpac#add('hrsh7th/cmp-buffer')
+  call minpac#add('saadparwaiz1/cmp_luasnip')
+  call minpac#add('L3MON4D3/LuaSnip', {'tag': 'v1.*', 'do': 'make install_jsregexp'})
 endif
 
 " Search
@@ -66,12 +77,21 @@ if has('nvim')
   call minpac#add('nvim-lua/plenary.nvim')
   call minpac#add('nvim-telescope/telescope.nvim', { 'rev': '0.1.x' })
   call minpac#add('nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' })
+
+endif
+
+" Prettier
+if has('nvim')
+  call minpac#add('nvim-lua/plenary.nvim')
+  call minpac#add('jose-elias-alvarez/null-ls.nvim')
+  call minpac#add('MunifTanjim/prettier.nvim')
 endif
 
 " Javascript
 " call minpac#add('MaxMEllon/vim-jsx-pretty')
 " call minpac#add('nikvdp/ejs-syntax')
 call minpac#add('briancollins/vim-jst') " For JST/EJS syntax
+
 
 " Apple
 call minpac#add('vim-scripts/applescript.vim')
@@ -117,35 +137,3 @@ nnoremap <F5> :UndotreeToggle<cr>
 
 " Toggle Tagbar
 nmap <F8> :TagbarToggle<CR>
-
-" " nvim-Treesitter
-if has('nvim')
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  -- One of "all" or a list of languages
-  ensure_installed = {'css', 'bash', 'fish', 'html', 'javascript', 'typescript', 'tsx', 'json', 'lua', 'markdown', 'regex', 'scss', 'vim', 'yaml', 'python'},
-
-  -- Install languages synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-  -- List of parsers to ignore installing
-  ignore_install = { "" },
-
-  highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
-
-    -- list of language that will be disabled
-    disable = { "" },
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-  incremental_selection = { enable = true },
-  indent = { enable = true },
-}
-EOF
-endif

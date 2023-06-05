@@ -17,24 +17,35 @@ ln -s ~/dotfiles/global-gitignore ~/.gitignore
 
 Install tools:
 
-RipGrep
+RipGrep recursively searches directories
 
 ```bash
 brew install ripgrep
 ```
 
-```bash
-sudo port install ripgrep
-```
-
-Install FD
+Install FD, an alternative to `find`
 
 ```bash
 brew install fd
 ```
 
+Tree-sitter language parser for syntax highlighting
+
 ```bash
-sudo port install fd
+brew install tree-sitter
 ```
+
+Prettierd for Prettier support
+
+```bash
+brew install fsouza/prettierd/prettierd
+```
+
+Eslint_d for fast linting
+
+```bash
+yarn global add eslint_d
+```
+
 
 - All plugins and scripts are stored in the dotfiles/vim directory.
