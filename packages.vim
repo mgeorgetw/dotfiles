@@ -54,13 +54,19 @@ call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mattn/emmet-vim')
 call minpac#add('honza/vim-snippets')
-call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
+
+if has('nvim')
+  call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
+endif
 
 " Search
 call minpac#add('mileszs/ack.vim')
-call minpac#add('nvim-lua/plenary.nvim')
-call minpac#add('nvim-telescope/telescope.nvim', { 'rev': '0.1.x' })
-call minpac#add('nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' })
+
+if has('nvim')
+  call minpac#add('nvim-lua/plenary.nvim')
+  call minpac#add('nvim-telescope/telescope.nvim', { 'rev': '0.1.x' })
+  call minpac#add('nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' })
+endif
 
 " Javascript
 " call minpac#add('MaxMEllon/vim-jsx-pretty')
@@ -113,6 +119,7 @@ nnoremap <F5> :UndotreeToggle<cr>
 nmap <F8> :TagbarToggle<CR>
 
 " " nvim-Treesitter
+if has('nvim')
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   -- One of "all" or a list of languages
@@ -141,3 +148,4 @@ require'nvim-treesitter.configs'.setup {
   indent = { enable = true },
 }
 EOF
+endif
