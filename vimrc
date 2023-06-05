@@ -27,7 +27,7 @@ endif
 " Highlight yanked text
 augroup LuaHighlight
     autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
 augroup END
 
 " highlightedyank - make it work with older Vim
@@ -50,9 +50,10 @@ augroup END
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
-"Invisible character colors
+" Set listmode character (:h listchas) colors
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
+
 set tabstop=2       " number of visual spaces per TAB
 set shiftwidth=2
 set softtabstop=2   " number of spaces in tab when editing
@@ -85,6 +86,7 @@ if (empty($TMUX))
     endif
 endif
 
+" Set a colorscheme
 set background=light
 let g:gruvbox_material_foreground = 'original'
 silent! colorscheme catppuccin-latte  " Default theme
@@ -92,8 +94,10 @@ silent! colorscheme catppuccin-latte  " Default theme
 " Choose theme according to Mac's dark mode
 " if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
 "     set background=dark
+"     silent! colorscheme catppuccin-mocha
 " else
 "     set background=light
+"     silent! colorscheme catppuccin-latte
 " endif
 
 set t_Co=256
@@ -107,14 +111,14 @@ set showmatch           " highlight matching [{()}]
 set splitbelow          " More natural split opening
 set splitright
 
-" Show relative number in normal mode
+" Show relative number only in normal mode
 augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufEnter,FocusLost,InsertEnter * set norelativenumber
 augroup END
 
-" Cursor changes between modes.
+" Make cursor change between modes.
 let &t_SI.="\e[6 q" "SI = INSERT mode
 let &t_SR.="\e[4 q" "SR = REPLACE mode
 let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
@@ -122,10 +126,10 @@ let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
 
 " Navigation {{{
 command CWD cd %:p:h    " CWD = Change to Currently working directory
-" set autochdir           " working directory is always the same as the file editing
+" set autochdir           " Make working directory always the same as current file
 
 " Configuring Netrw
-" Toggle netrw
+" Open netrw
 nnoremap <C-e> :e.<CR>
 let g:netrw_liststyle=3   " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
@@ -133,7 +137,7 @@ let g:netrw_list_hide=netrw_gitignore#Hide()
 " Stop netrw from creating unnecessary buffers
 let g:netrw_fastbrowse = 0
 
-" Opening files located in the same directory as the current file
+" Opening files located in the same directory as current file
 cnoremap <expr> %%  getcmdtype() == ':' ? fnameescape(expand('%:h')).'/' : '%%'
 
 " Mappings to Quickly Traverse Vim's Buffer Lists
@@ -143,26 +147,27 @@ nnoremap <silent> [B :bfirst <CR>
 nnoremap <silent> ]B :blast <CR>
 
 if has('nvim')
-    " Getting out of Terminal mode
+    " To get out of Terminal mode easily
     tnoremap <ESC> <C-\><C-n>
     tnoremap <A-[> <ESC>
-    " Switch between windows
-    " Terminal mode:
+
+    " Use the same commands to switch between windows
+    " In terminal mode:
     tnoremap <M-h> <c-\><c-n><c-w>h
     tnoremap <M-j> <c-\><c-n><c-w>j
     tnoremap <M-k> <c-\><c-n><c-w>k
     tnoremap <M-l> <c-\><c-n><c-w>l
-    " Insert mode:
+    " In insert mode:
     inoremap <M-h> <Esc><c-w>h
     inoremap <M-j> <Esc><c-w>j
     inoremap <M-k> <Esc><c-w>k
     inoremap <M-l> <Esc><c-w>l
-    " Visual mode:
+    " In visual mode:
     vnoremap <M-h> <Esc><c-w>h
     vnoremap <M-j> <Esc><c-w>j
     vnoremap <M-k> <Esc><c-w>k
     vnoremap <M-l> <Esc><c-w>l
-    " Normal mode:
+    " In normal mode:
     nnoremap <M-h> <c-w>h
     nnoremap <M-j> <c-w>j
     nnoremap <M-k> <c-w>k
@@ -185,7 +190,7 @@ let g:ackprg = 'rg --vimgrep --no-heading'
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
-" Search for the Current Selection
+" Search for currently selected text
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 function! s:VSetSearch()
@@ -221,24 +226,25 @@ nnoremap gV `[v`]
 " }}}
 
 " Leader Shortcuts {{{
+" Set leader key
 let mapleader=" "
 nnoremap <SPACE> <Nop>
 
-" edit vimrc/fish and load vimrc bindings
+" Edit vimrc/fish and load vimrc bindings
 nnoremap <leader>vc :vsp ~/.vim/vimrc<CR>
 nnoremap <leader>fc :vsp ~/.config/fish/config.fish<CR>
 
-" reload vim
+" Reload vim
 nnoremap <leader>rl :so $MYVIMRC<CR>
 
-" go to the previous/next buffer
+" Go to the previous/next buffer
 nnoremap <leader>p :bp<CR>
 nnoremap <leader>n :bn<CR>
 
 " Close buffer without closing the split window
 nnoremap <leader>d :b#<bar>bd#<CR>
 
-" Toggle invisible characters
+" Toggle listmode characters
 nnoremap <leader>l :set list!<CR>
 
 " Count highlighted matches
@@ -266,7 +272,7 @@ if has("gui_macvim")
     nnoremap <C-TAB> :bn<CR>
 endif
 
-" Shortcut to mute highlighting
+" Mute highlighting
 nnoremap <silent> <C-l> :<C-u> nohlsearch <CR><C-l>
 
 " Prettify JSON file using Python
@@ -279,15 +285,15 @@ command! Marked :silent !open -a Marked.app '%:p'<cr>
 " Syntax {{{
 " syntax enable	    " enable syntax processing
 
-" Python
-let g:python_host_prog = '/usr/local/bin/python3'
-let g:python2_host_prog = '/usr/local/bin/python2.7'
-let g:python3_host_prog = '/usr/local/bin/python3'
-
 " Javascript
 let g:jsx_ext_required = 1 " Allow JSX in normal JS files
 " }}}
 
 " Integrations {{{
+" Python
+let g:python_host_prog = '/usr/local/bin/python3'
+let g:python2_host_prog = '/usr/local/bin/python2.7'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 let g:ruby_host_prog = '/usr/local/lib/ruby/gems/3.1.0/bin/neovim-ruby-host'
 " }}}
