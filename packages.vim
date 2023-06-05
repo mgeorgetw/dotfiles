@@ -62,21 +62,10 @@ call minpac#add('nvim-lua/plenary.nvim')
 call minpac#add('nvim-telescope/telescope.nvim', { 'rev': '0.1.x' })
 call minpac#add('nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' })
 
-" Markdown
-" call minpac#add('tpope/vim-markdown')
-
 " Javascript
-" call minpac#add('elzr/vim-json')
-" call minpac#add('yuezk/vim-js')
-" call minpac#add('leafgarland/typescript-vim')
 " call minpac#add('MaxMEllon/vim-jsx-pretty')
 " call minpac#add('nikvdp/ejs-syntax')
 call minpac#add('briancollins/vim-jst') " For JST/EJS syntax
-
-" CSS
-" call minpac#add('hail2u/vim-css3-syntax')
-" call minpac#add('groenewege/vim-less')
-" call minpac#add('stephenway/postcss.vim')
 
 " Apple
 call minpac#add('vim-scripts/applescript.vim')
@@ -127,7 +116,7 @@ nmap <F8> :TagbarToggle<CR>
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   -- One of "all" or a list of languages
-  ensure_installed = {'css', 'fish', 'html', 'javascript', 'json', 'lua', 'markdown', 'regex', 'scss', 'vim', 'yaml', 'python'},
+  ensure_installed = {'css', 'bash', 'fish', 'html', 'javascript', 'typescript', 'json', 'lua', 'markdown', 'regex', 'scss', 'vim', 'yaml', 'python'},
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,

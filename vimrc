@@ -66,6 +66,10 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.txt setfiletype markdown
     autocmd BufNewFile,BufRead *.scss setfiletype scss.css
     " autocmd BufNewFile,BufRead *.ejs setfiletype html
+
+    " Turn on spell checking
+    autocmd FileType markdown,md setlocal spell spelllang=en_us
+    autocmd FileType text,textile setlocal spell spelllang=en_us
 endif
 
 " UI Layout {{{
