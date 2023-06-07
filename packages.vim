@@ -53,7 +53,15 @@ call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mattn/emmet-vim')
-call minpac#add('honza/vim-snippets')
+" call minpac#add('honza/vim-snippets')
+
+" Search
+call minpac#add('mileszs/ack.vim')
+
+if has('nvim')
+  call minpac#add('nvim-telescope/telescope.nvim', { 'rev': '0.1.x' })
+  call minpac#add('nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' })
+endif
 
 if has('nvim')
   call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
@@ -62,7 +70,12 @@ if has('nvim')
   call minpac#add('windwp/nvim-ts-autotag')
   call minpac#add('windwp/nvim-autopairs')
 
+  " Language Server Protocol
+  call minpac#add('williamboman/mason.nvim', { 'do': ':MasonUpdate' })
+  call minpac#add('williamboman/mason-lspconfig.nvim')
   call minpac#add('neovim/nvim-lspconfig')
+
+  " Completion and snippets
   call minpac#add('hrsh7th/nvim-cmp')
   call minpac#add('hrsh7th/cmp-nvim-lsp')
   call minpac#add('hrsh7th/cmp-buffer')
@@ -70,17 +83,7 @@ if has('nvim')
   call minpac#add('L3MON4D3/LuaSnip', {'tag': 'v1.*', 'do': 'make install_jsregexp'})
 endif
 
-" Search
-call minpac#add('mileszs/ack.vim')
-
-if has('nvim')
-  call minpac#add('nvim-lua/plenary.nvim')
-  call minpac#add('nvim-telescope/telescope.nvim', { 'rev': '0.1.x' })
-  call minpac#add('nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' })
-
-endif
-
-" Prettier
+" Install linters, formatters and snippets
 if has('nvim')
   call minpac#add('nvim-lua/plenary.nvim')
   call minpac#add('jose-elias-alvarez/null-ls.nvim')
@@ -91,7 +94,6 @@ endif
 " call minpac#add('MaxMEllon/vim-jsx-pretty')
 " call minpac#add('nikvdp/ejs-syntax')
 call minpac#add('briancollins/vim-jst') " For JST/EJS syntax
-
 
 " Apple
 call minpac#add('vim-scripts/applescript.vim')

@@ -1,21 +1,28 @@
 if has('nvim')
 lua <<EOF
 
+local status, mason = pcall(require, "mason")
+if (not status) then return end
+
+local status, mason_lspconfig = pcall(require, "mason-lspconfig")
+if (not status) then return end
+
 local status, nvim_lsp = pcall(require, "lspconfig")
 if (not status) then return end
 
--- TypeScript
-nvim_lsp.tsserver.setup {
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx" },
-  cmd = { "typescript-language-server", "--stdio" }
+mason.setup()
+mason_lspconfig.setup { 
+  ensure_installed = { "vtsls", "yamlls", "html", "cssls", "jsonls" },
 }
+
+-- TypeScript
+-- nvim_lsp.tsserver.setup {
+--   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx" },
+--   cmd = { "typescript-language-server", "--stdio" }
+-- }
 
 -- Python
 nvim_lsp.pyright.setup{}
-
--- CSS, HTML 
-nvim_lsp.html.setup{}
-nvim_lsp.cssls.setup{}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
