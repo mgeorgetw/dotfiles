@@ -59,8 +59,16 @@ call minpac#add('mattn/emmet-vim')
 call minpac#add('mileszs/ack.vim')
 
 if has('nvim')
+  " Helper functions
+  call minpac#add('nvim-lua/plenary.nvim')
+
+  " Fuzzy finder
   call minpac#add('nvim-telescope/telescope.nvim', { 'rev': '0.1.x' })
   call minpac#add('nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' })
+
+  " Install linters, formatters and snippets
+  call minpac#add('jose-elias-alvarez/null-ls.nvim')
+  call minpac#add('MunifTanjim/prettier.nvim')
 endif
 
 if has('nvim')
@@ -81,13 +89,6 @@ if has('nvim')
   call minpac#add('hrsh7th/cmp-buffer')
   call minpac#add('saadparwaiz1/cmp_luasnip')
   call minpac#add('L3MON4D3/LuaSnip', {'tag': 'v1.*', 'do': 'make install_jsregexp'})
-endif
-
-" Install linters, formatters and snippets
-if has('nvim')
-  call minpac#add('nvim-lua/plenary.nvim')
-  call minpac#add('jose-elias-alvarez/null-ls.nvim')
-  call minpac#add('MunifTanjim/prettier.nvim')
 endif
 
 " Javascript
