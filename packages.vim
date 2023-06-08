@@ -30,16 +30,13 @@ call minpac#add('k-takata/minpac', {'type': 'opt'})
 " General enhancements
 call minpac#add('tpope/vim-commentary')
 call minpac#add('suy/vim-context-commentstring')
-" call minpac#add('tpope/vim-dispatch')
-" call minpac#add('radenling/vim-dispatch-neovim')
 call minpac#add('tpope/vim-projectionist')
-call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-haml')
 call minpac#add('tpope/vim-obsession')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-surround')
 call minpac#add('tpope/vim-unimpaired')
-call minpac#add('jiangmiao/auto-pairs')
+" call minpac#add('jiangmiao/auto-pairs')
 call minpac#add('rhysd/conflict-marker.vim')
 call minpac#add('mbbill/undotree')
 call minpac#add('reedes/vim-litecorrect')
@@ -48,16 +45,18 @@ call minpac#add('mattn/webapi-vim')
 call minpac#add('majutsushi/tagbar')
 call minpac#add('godlygeek/tabular')
 call minpac#add('skywind3000/asyncrun.vim')
-" call minpac#add('neoclide/coc.nvim', {'branch': 'release'})
 call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('nelstrom/vim-visual-star-search')
-call minpac#add('airblade/vim-gitgutter')
 call minpac#add('mattn/emmet-vim')
-" call minpac#add('honza/vim-snippets')
+
+" Version control
+call minpac#add('tpope/vim-fugitive')
+" call minpac#add('airblade/vim-gitgutter')
 
 " Search
 call minpac#add('mileszs/ack.vim')
 
+" Packages that requires Neovim and plenary.nvim
 if has('nvim')
   " Helper functions
   call minpac#add('nvim-lua/plenary.nvim')
@@ -72,6 +71,10 @@ if has('nvim')
 endif
 
 if has('nvim')
+  " Version control decorations
+  call minpac#add('lewis6991/gitsigns.nvim')
+
+  " Syntax highlighting
   call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
 
   " Autotag and autopair with nvim-treesitter
@@ -96,7 +99,7 @@ endif
 " call minpac#add('nikvdp/ejs-syntax')
 call minpac#add('briancollins/vim-jst') " For JST/EJS syntax
 
-" Apple
+" Applescript
 call minpac#add('vim-scripts/applescript.vim')
 
 " Coloschemes and themes
@@ -136,7 +139,7 @@ let g:user_emmet_settings = {
       \}
 
 " Toggle Undotree
-nnoremap <F5> :UndotreeToggle<cr>
+nnoremap <leader>5 :UndotreeToggle<cr>
 
 " Toggle Tagbar
-nmap <F8> :TagbarToggle<CR>
+nmap <leader>8 :TagbarToggle<CR>

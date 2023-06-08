@@ -107,13 +107,13 @@ let g:gruvbox_material_foreground = 'original'
 silent! colorscheme catppuccin  " Default theme
 
 " Choose theme according to Mac's dark mode
-" if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
-"     set background=dark
-"     silent! colorscheme catppuccin-mocha
-" else
-"     set background=light
-"     silent! colorscheme catppuccin-latte
-" endif
+if system("defaults read -g AppleInterfaceStyle") =~ '^Dark'
+    set background=dark
+    silent! colorscheme catppuccin-mocha
+else
+    set background=light
+    silent! colorscheme catppuccin-latte
+endif
 
 " Show relative number only in normal mode
 augroup numbertoggle
