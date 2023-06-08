@@ -149,7 +149,6 @@ if has('nvim')
 lua <<EOF
 
 local modules = {
-  { name = "nvim-ts-autotag", setup = {} },
   { name = "nvim-autopairs", setup = { 
        disable_filetype = { "TelescopePrompt", "vim" } 
   }},
@@ -158,13 +157,12 @@ local modules = {
 
 for _, module in ipairs(modules) do
   local status, mod = pcall(require, module.name)
-  if status then
-    if type(mod.setup) == "function" then
-      mod.setup(module.setup)
-    elseif type(mod.setup) == "table" then
-      for k, v in pairs(module.setup) do
-        mod.setup[k] = v
-      end
+  if (not status) then return end
+  if type(mod.setup) == "function" then
+    mod.setup(module.setup)
+  elseif type(mod.setup) == "table" then
+    for k, v in pairs(module.setup) do
+      mod.setup[k] = v
     end
   end
 end
