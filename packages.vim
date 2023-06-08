@@ -56,20 +56,6 @@ call minpac#add('tpope/vim-fugitive')
 " Search
 call minpac#add('mileszs/ack.vim')
 
-" Packages that requires Neovim and plenary.nvim
-if has('nvim')
-  " Helper functions
-  call minpac#add('nvim-lua/plenary.nvim')
-
-  " Fuzzy finder
-  call minpac#add('nvim-telescope/telescope.nvim', { 'rev': '0.1.x' })
-  call minpac#add('nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' })
-
-  " Install linters, formatters and snippets
-  call minpac#add('jose-elias-alvarez/null-ls.nvim')
-  call minpac#add('MunifTanjim/prettier.nvim')
-endif
-
 if has('nvim')
   " Version control decorations
   call minpac#add('lewis6991/gitsigns.nvim')
@@ -92,6 +78,20 @@ if has('nvim')
   call minpac#add('hrsh7th/cmp-buffer')
   call minpac#add('saadparwaiz1/cmp_luasnip')
   call minpac#add('L3MON4D3/LuaSnip', {'tag': 'v1.*', 'do': 'make install_jsregexp'})
+endif
+
+" Packages that requires Neovim and plenary.nvim
+if has('nvim')
+  " Helper functions
+  call minpac#add('nvim-lua/plenary.nvim')
+
+  " Fuzzy finder
+  call minpac#add('nvim-telescope/telescope.nvim', { 'rev': '0.1.x' })
+  call minpac#add('nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' })
+
+  " Linters and formatters
+  call minpac#add('jose-elias-alvarez/null-ls.nvim')
+  call minpac#add('MunifTanjim/prettier.nvim')
 endif
 
 " Javascript
@@ -143,3 +143,31 @@ nnoremap <leader>5 :UndotreeToggle<cr>
 
 " Toggle Tagbar
 nmap <leader>8 :TagbarToggle<CR>
+
+" Setup Neovim plugins with not many configurations
+if has('nvim')
+lua <<EOF
+
+local modules = {
+  { name = "nvim-ts-autotag", setup = {} },
+  { name = "nvim-autopairs", setup = { 
+       disable_filetype = { "TelescopePrompt", "vim" } 
+  }},
+  { name = "gitsigns", setup = {} },
+}
+
+for _, module in ipairs(modules) do
+  local status, mod = pcall(require, module.name)
+  if status then
+    if type(mod.setup) == "function" then
+      mod.setup(module.setup)
+    elseif type(mod.setup) == "table" then
+      for k, v in pairs(module.setup) do
+        mod.setup[k] = v
+      end
+    end
+  end
+end
+
+EOF
+endif
