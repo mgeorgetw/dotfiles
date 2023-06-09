@@ -57,6 +57,9 @@ call minpac#add('tpope/vim-fugitive')
 call minpac#add('mileszs/ack.vim')
 
 if has('nvim')
+  " Colorizer
+  call minpac#add('norcalli/nvim-colorizer.lua')
+
   " Version control decorations
   call minpac#add('lewis6991/gitsigns.nvim')
 
@@ -144,6 +147,9 @@ nnoremap <leader>5 :UndotreeToggle<cr>
 " Toggle Tagbar
 nmap <leader>8 :TagbarToggle<CR>
 
+" Required by nvim-colorizer
+set termguicolors
+
 " Setup Neovim plugins with not many configurations
 if has('nvim')
 lua <<EOF
@@ -153,6 +159,13 @@ local modules = {
        disable_filetype = { "TelescopePrompt", "vim" } 
   }},
   { name = "gitsigns", setup = {} },
+  { name = "colorizer", setup = {
+      'css';
+      'javascript';
+      html = {
+        mode = 'foreground';
+      }
+  }},
 }
 
 for _, module in ipairs(modules) do
