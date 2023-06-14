@@ -62,29 +62,29 @@ set backspace=indent,eol,start " make backspace work again
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
-    autocmd BufNewFile,BufRead *.rss setfiletype xml
-    autocmd BufNewFile,BufRead *.txt setfiletype markdown
-    autocmd BufNewFile,BufRead *.scss setfiletype scss.css
-    " autocmd BufNewFile,BufRead *.ejs setfiletype html
+  autocmd BufNewFile,BufRead *.rss setfiletype xml
+  autocmd BufNewFile,BufRead *.txt setfiletype markdown
+  autocmd BufNewFile,BufRead *.scss setfiletype scss.css
+  " autocmd BufNewFile,BufRead *.ejs setfiletype html
 
-    " Turn on spell checking
-    autocmd FileType markdown,md setlocal spell spelllang=en_us
-    autocmd FileType text,textile setlocal spell spelllang=en_us
+  " Turn on spell checking
+  autocmd FileType markdown,md setlocal spell spelllang=en_us
+  autocmd FileType text,textile setlocal spell spelllang=en_us
 endif
 
 " UI Layout {{{
 " Apply GUI font only to MacVim because VimR does not like it.
 if has("gui_macvim")
-    set guifont=PragmataPro:h14
-    set antialias
-    set gcr+=a:blinkon0
+  set guifont=PragmataPro:h14
+  set antialias
+  set gcr+=a:blinkon0
 endif
 
 " Enable True Color support
 if (empty($TMUX))
-    if (has("nvim"))
-        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    endif
+  if (has("nvim"))
+      let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
 endif
 
 set t_Co=256
@@ -148,31 +148,31 @@ nnoremap <silent> [B :bfirst <CR>
 nnoremap <silent> ]B :blast <CR>
 
 if has('nvim')
-    " To get out of Terminal mode easily
-    tnoremap <ESC> <C-\><C-n>
-    tnoremap <A-[> <ESC>
+  " To get out of Terminal mode easily
+  tnoremap <ESC> <C-\><C-n>
+  tnoremap <A-[> <ESC>
 
-    " Use the same commands to switch between windows
-    " In terminal mode:
-    tnoremap <M-h> <c-\><c-n><c-w>h
-    tnoremap <M-j> <c-\><c-n><c-w>j
-    tnoremap <M-k> <c-\><c-n><c-w>k
-    tnoremap <M-l> <c-\><c-n><c-w>l
-    " In insert mode:
-    inoremap <M-h> <Esc><c-w>h
-    inoremap <M-j> <Esc><c-w>j
-    inoremap <M-k> <Esc><c-w>k
-    inoremap <M-l> <Esc><c-w>l
-    " In visual mode:
-    vnoremap <M-h> <Esc><c-w>h
-    vnoremap <M-j> <Esc><c-w>j
-    vnoremap <M-k> <Esc><c-w>k
-    vnoremap <M-l> <Esc><c-w>l
-    " In normal mode:
-    nnoremap <M-h> <c-w>h
-    nnoremap <M-j> <c-w>j
-    nnoremap <M-k> <c-w>k
-    nnoremap <M-l> <c-w>l
+  " Use the same commands to switch between windows
+  " In terminal mode:
+  tnoremap <M-h> <c-\><c-n><c-w>h
+  tnoremap <M-j> <c-\><c-n><c-w>j
+  tnoremap <M-k> <c-\><c-n><c-w>k
+  tnoremap <M-l> <c-\><c-n><c-w>l
+  " In insert mode:
+  inoremap <M-h> <Esc><c-w>h
+  inoremap <M-j> <Esc><c-w>j
+  inoremap <M-k> <Esc><c-w>k
+  inoremap <M-l> <Esc><c-w>l
+  " In visual mode:
+  vnoremap <M-h> <Esc><c-w>h
+  vnoremap <M-j> <Esc><c-w>j
+  vnoremap <M-k> <Esc><c-w>k
+  vnoremap <M-l> <Esc><c-w>l
+  " In normal mode:
+  nnoremap <M-h> <c-w>h
+  nnoremap <M-j> <c-w>j
+  nnoremap <M-k> <c-w>k
+  nnoremap <M-l> <c-w>l
 endif
 " }}}
 
@@ -266,11 +266,11 @@ vnoremap <C-x> "*d
 
 " Emulate the system clipboard(only in MacVim)
 if has("gui_macvim")
-    inoremap <D-v> <ESC>"+pa
-    vnoremap <D-c> "*y
-    vnoremap <D-x> "*d
-    " Use Ctrl-TAB to switch between buffers
-    nnoremap <C-TAB> :bn<CR>
+  inoremap <D-v> <ESC>"+pa
+  vnoremap <D-c> "*y
+  vnoremap <D-x> "*d
+  " Use Ctrl-TAB to switch between buffers
+  nnoremap <C-TAB> :bn<CR>
 endif
 
 " Mute highlighting
