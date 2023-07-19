@@ -13,6 +13,7 @@ ln -s ~/dotfiles/vimrc ~/.vim/vimrc
 ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
 ln -s ~/dotfiles/vim/pack ~/.config/nvim/pack
 ln -s ~/dotfiles/global-gitignore ~/.gitignore
+ln -s ~/dotfiles/globalconfig ~/.gitconfig
 ```
 
 Install tools:
@@ -46,6 +47,5 @@ Eslint_d for fast linting
 ```bash
 yarn global add eslint_d
 ```
-
 
 - All plugins and scripts are stored in the dotfiles/vim directory.
