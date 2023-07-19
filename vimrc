@@ -294,9 +294,9 @@ let g:jsx_ext_required = 1 " Allow JSX in normal JS files
 
 " Integrations {{{
 " Python
-let g:python_host_prog = '/usr/local/bin/python3'
-let g:python2_host_prog = '/usr/local/bin/python2.7'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/opt/homebrew/bin/python3'
+let g:python2_host_prog = '/opt/homebrew/bin/python2.7'
+let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
-let g:ruby_host_prog = '/usr/local/lib/ruby/gems/3.1.0/bin/neovim-ruby-host'
+let g:ruby_host_prog = '/usr/local/bin/neovim-ruby-host'
 " }}}
