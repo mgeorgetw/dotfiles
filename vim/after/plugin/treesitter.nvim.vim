@@ -6,7 +6,7 @@ if (not status) then return end
 
 treesitter.setup {
   -- One of "all" or a list of languages
-  ensure_installed = {'css', 'fish', 'bash', 'html', 'javascript', 'typescript', 'tsx', 'json', 'lua', 'markdown', 'regex',  'vim', 'yaml', 'python'},
+  ensure_installed = {'css', 'fish', 'bash', 'html', 'javascript', 'typescript', 'tsx', 'json', 'lua', 'markdown', 'regex',  'vim', 'yaml', 'python', 'swift'},
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,

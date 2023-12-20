@@ -213,6 +213,14 @@ set foldnestmax=10      " 10 nested fold max
 
 " space open/closes folds
 set foldmethod=indent   " fold based on indent level
+
+" Remember folds after saves
+augroup remember_folds
+  autocmd!
+  au BufWinLeave ?* mkview 1
+  au BufWinEnter ?* silent! loadview 1
+augroup END
+
 " }}}
 
 " Movement {{{
