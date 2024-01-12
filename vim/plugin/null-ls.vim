@@ -12,6 +12,12 @@ null_ls.setup({
     null_ls.builtins.formatting.prettierd,
     null_ls.builtins.completion.luasnip,
     null_ls.builtins.code_actions.gitsigns,
+
+    -- python
+    null_ls.builtins.formatting.black.with({
+      extra_args = { "--line-length=120" }
+    }),
+    null_ls.builtins.formatting.isort,
   }
 })
 EOF

@@ -6,3 +6,5 @@
 [user]
 	name = George Huang
 	email = eternallogger@gmail.com
+[init]
+	defaultBranch = main

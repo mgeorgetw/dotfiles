@@ -12,7 +12,7 @@ if (not status) then return end
 
 mason.setup()
 mason_lspconfig.setup { 
-  ensure_installed = { "vtsls", "yamlls", "html", "cssls", "jsonls", "pyright" },
+  ensure_installed = { "vtsls", "yamlls", "html", "cssls", "jsonls", "pyright"},
 }
 
 -- TypeScript

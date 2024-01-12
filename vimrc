@@ -152,7 +152,7 @@ if has('nvim')
   tnoremap <ESC> <C-\><C-n>
   tnoremap <A-[> <ESC>
 
-  " Use the same commands to switch between windows
+  " Use the same commands to switch between split windows
   " In terminal mode:
   tnoremap <M-h> <c-\><c-n><c-w>h
   tnoremap <M-j> <c-\><c-n><c-w>j
@@ -174,6 +174,12 @@ if has('nvim')
   nnoremap <M-k> <c-w>k
   nnoremap <M-l> <c-w>l
 endif
+
+" Make resizing split window easier
+nnoremap <silent> <M-Left> :vertical resize -3<CR>
+nnoremap <silent> <M-Right> :vertical resize +3<CR>
+nnoremap <silent> <M-Up> :resize +3<CR>
+nnoremap <silent> <M-Down> :resize -3<CR>
 " }}}
 
 " Search and replace {{{

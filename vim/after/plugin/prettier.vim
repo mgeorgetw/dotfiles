@@ -17,6 +17,7 @@ prettier.setup {
     "markdown",
     "html",
     "yaml",
+    "python"
   }
 }
 EOF
