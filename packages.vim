@@ -149,14 +149,16 @@ let g:user_emmet_settings = {
 " Codeium key mappings
 let g:codeium_no_map_tab = 1
 imap <script><silent><nowait><expr> <S-tab> codeium#Accept()
-imap <script><silent><nowait> <M-/> <Cmd>call codeium#Chat()<CR>
+nnoremap <M-/> <Cmd>call codeium#Chat()<CR>
+inoremap <M-/> <Cmd>call codeium#Chat()<CR>
+vnoremap <M-/> <Cmd>call codeium#Chat()<CR>
 
 " Toggle Undotree
 nnoremap <leader>5 :UndotreeToggle<cr>
 
 " Toggle Tagbar
 nmap <leader>8 :TagbarToggle<CR>
-
+                                   
 " Required by nvim-colorizer
 set termguicolors
 
