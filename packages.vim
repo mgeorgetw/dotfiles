@@ -49,6 +49,9 @@ call minpac#add('machakann/vim-highlightedyank')
 call minpac#add('nelstrom/vim-visual-star-search')
 call minpac#add('mattn/emmet-vim')
 
+" AI
+call minpac#add('Exafunction/codeium.vim', { 'branch': 'main' })
+
 " Version control
 call minpac#add('tpope/vim-fugitive')
 " call minpac#add('airblade/vim-gitgutter')
@@ -95,6 +98,7 @@ if has('nvim')
   " Linters and formatters
   call minpac#add('jose-elias-alvarez/null-ls.nvim')
   call minpac#add('MunifTanjim/prettier.nvim')
+
 endif
 
 " Javascript
@@ -141,6 +145,10 @@ let g:user_emmet_settings = {
       \    'extends' : 'jsx',
       \  },
       \}
+
+" Codeium key mappings
+let g:codeium_no_map_tab = 1
+imap <script><silent><nowait><expr> <S-tab> codeium#Accept()
 
 " Toggle Undotree
 nnoremap <leader>5 :UndotreeToggle<cr>
