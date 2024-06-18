@@ -18,6 +18,10 @@ null_ls.setup({
       extra_args = { "--line-length=120" }
     }),
     null_ls.builtins.formatting.isort,
+
+    -- php
+    null_ls.builtins.diagnostics.php,
+    null_ls.builtins.formatting.phpcsfixer,
   }
 })
 EOF
