@@ -19,11 +19,17 @@ telescope.setup({
       override_file_sorter = true,     -- override the file sorter
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
                                        -- the default case_mode is "smart_case"
-    }
+    },
+    
+    file_browser = {
+      theme = "ivy",
+      hijack_netrw = true,
+    },
   }
 })
 
 telescope.load_extension('fzf')
+telescope.load_extension('file_browser')
 
 -- keymaps
 vim.keymap.set('n', ' ff',
@@ -44,6 +50,9 @@ vim.keymap.set('n', ' fh', function()
 end)
 vim.keymap.set('n', ' fe', function()
   builtin.diagnostics()
+end)
+vim.keymap.set("n", "<c-e>", function()
+	require("telescope").extensions.file_browser.file_browser()
 end)
 EOF
 

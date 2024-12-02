@@ -22,6 +22,9 @@ null_ls.setup({
     -- php
     null_ls.builtins.diagnostics.php,
     null_ls.builtins.formatting.phpcsfixer,
+
+    --xml
+    null_ls.builtins.formatting.xmlformat
   }
 })
 EOF

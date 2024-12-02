@@ -95,6 +95,9 @@ if has('nvim')
   call minpac#add('nvim-telescope/telescope.nvim', { 'rev': '0.1.x' })
   call minpac#add('nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' })
 
+  " File browser
+  call minpac#add('nvim-telescope/telescope-file-browser.nvim')
+
   " Linters and formatters
   call minpac#add('jose-elias-alvarez/null-ls.nvim')
   call minpac#add('MunifTanjim/prettier.nvim')
@@ -113,6 +116,8 @@ call minpac#add('vim-scripts/applescript.vim')
 " call minpac#add('morhetz/gruvbox', {'type': 'opt'})
 " call minpac#add('sainnhe/gruvbox-material')
 call minpac#add('catppuccin/nvim', {'as': 'catppuccin'})
+call minpac#add('nvim-tree/nvim-web-devicons')
+
 
 """ Plugin configurations
 " Fugitive and status line
