@@ -51,6 +51,8 @@ call minpac#add('mattn/emmet-vim')
 
 " AI
 call minpac#add('Exafunction/codeium.vim', { 'branch': 'main' })
+call minpac#add('zbirenbaum/copilot.lua')
+call minpac#add('zbirenbaum/copilot-cmp')
 
 " Version control
 call minpac#add('tpope/vim-fugitive')
@@ -167,15 +169,17 @@ nmap <leader>8 :TagbarToggle<CR>
 " Required by nvim-colorizer
 set termguicolors
 
+autocmd VimEnter * CodeiumDisable
+
 " Setup Neovim plugins with not many configurations
 if has('nvim')
 lua <<EOF
-
 local modules = {
   { name = "nvim-autopairs", setup = { 
        disable_filetype = { "TelescopePrompt", "vim" } 
   }},
   { name = "gitsigns", setup = {} },
+  { name = "copilot_cmp", setup = {} },
   { name = "colorizer", setup = {
       'css';
       'javascript';
