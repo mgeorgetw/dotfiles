@@ -56,6 +56,7 @@ call minpac#add('zbirenbaum/copilot-cmp')
 
 " Version control
 call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-rhubarb')
 " call minpac#add('airblade/vim-gitgutter')
 
 " Search

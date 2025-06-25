@@ -70,6 +70,7 @@ if has("autocmd")
   " Turn on spell checking
   autocmd FileType markdown,md setlocal spell spelllang=en_us
   autocmd FileType text,textile setlocal spell spelllang=en_us
+  set nospell
 endif
 
 " UI Layout {{{
