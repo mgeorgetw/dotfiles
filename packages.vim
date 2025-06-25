@@ -96,14 +96,17 @@ if has('nvim')
   " Fuzzy finder
   call minpac#add('nvim-telescope/telescope.nvim', { 'rev': '0.1.x' })
   call minpac#add('nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' })
+  call minpac#add('nvim-telescope/telescope-ui-select.nvim')
 
   " File browser
   call minpac#add('nvim-telescope/telescope-file-browser.nvim')
 
   " Linters and formatters
-  call minpac#add('jose-elias-alvarez/null-ls.nvim')
+  call minpac#add('nvimtools/none-ls.nvim')
   call minpac#add('MunifTanjim/prettier.nvim')
 
+  " AI
+  call minpac#add('CopilotC-Nvim/CopilotChat.nvim')
 endif
 
 " Javascript
@@ -165,11 +168,17 @@ nnoremap <leader>5 :UndotreeToggle<cr>
 
 " Toggle Tagbar
 nmap <leader>8 :TagbarToggle<CR>
-                                   
+
+" Toggle Copilot Chat
+nnoremap <leader>gc :CopilotChat<CR>
+vnoremap <leader>gx :CopilotChatExplain<CR>
+vnoremap <leader>gf :CopilotChatFix<CR>
+                                  
 " Required by nvim-colorizer
 set termguicolors
 
 autocmd VimEnter * CodeiumDisable
+" au BufNewFile,BufRead * let b:copilot_enabled = 0
 
 " Setup Neovim plugins with not many configurations
 if has('nvim')
@@ -180,6 +189,7 @@ local modules = {
   }},
   { name = "gitsigns", setup = {} },
   { name = "copilot_cmp", setup = {} },
+  { name = "CopilotChat", setup = {} },
   { name = "colorizer", setup = {
       'css';
       'javascript';

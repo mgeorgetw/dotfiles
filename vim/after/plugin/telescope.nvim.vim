@@ -25,11 +25,18 @@ telescope.setup({
       theme = "ivy",
       hijack_netrw = true,
     },
+
+    ["ui-select"] = {
+        require("telescope.themes").get_dropdown {
+          -- even more opts
+        }
+    }
   }
 })
 
 telescope.load_extension('fzf')
 telescope.load_extension('file_browser')
+telescope.load_extension('ui-select')
 
 -- keymaps
 vim.keymap.set('n', ' ff',

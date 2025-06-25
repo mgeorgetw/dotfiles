@@ -11,8 +11,11 @@ local status, nvim_lsp = pcall(require, "lspconfig")
 if (not status) then return end
 
 mason.setup()
-mason_lspconfig.setup { 
+
+mason_lspconfig.setup {
   ensure_installed = { "vtsls", "yamlls", "html", "cssls", "jsonls", "pyright"},
+  automatic_installation = true,
+  automatic_enable = true,
 }
 
 -- TypeScript

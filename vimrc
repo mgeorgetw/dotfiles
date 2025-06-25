@@ -1,8 +1,6 @@
 filetype plugin indent on
 runtime macros/matchit.vim " Build in 'Match it' extension
 
-source ~/dotfiles/packages.vim
-
 " Editing {{{
 set encoding=utf-8
 set virtualedit=all
@@ -10,9 +8,11 @@ au FileType crontab setlocal bkc=yes  " enable saving crontab file
 set nrformats= " Enables adding numbers with padding zeroes
 
 " Disable IME when switching to normal mode. Does not work with NeoVim.
-set noimdisable
-autocmd! InsertLeave * set imdisable|set iminsert=0
-autocmd! InsertEnter * set noimdisable|set iminsert=0
+if !has('nvim')
+    set imdisable
+    autocmd! InsertLeave * set imdisable|set iminsert=0
+    autocmd! InsertEnter * set noimdisable|set iminsert=0
+endif
 
 " Enable mouse
 if has('mouse')
@@ -133,7 +133,7 @@ command CWD cd %:p:h    " CWD = Change to Currently working directory
 " Open netrw
 nnoremap <C-e> :e.<CR>
 let g:netrw_liststyle=3   " tree view
-let g:netrw_list_hide=netrw_gitignore#Hide()
+" let g:netrw_list_hide=netrw_gitignore#Hide()
 
 " Stop netrw from creating unnecessary buffers
 let g:netrw_fastbrowse = 0
@@ -314,3 +314,5 @@ let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
 let g:ruby_host_prog = '/usr/local/bin/neovim-ruby-host'
 " }}}
+
+source ~/dotfiles/packages.vim
