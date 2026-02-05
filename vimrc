@@ -68,9 +68,8 @@ if has("autocmd")
   " autocmd BufNewFile,BufRead *.ejs setfiletype html
 
   " Turn on spell checking
-  autocmd FileType markdown,md setlocal spell spelllang=en_us
-  autocmd FileType text,textile setlocal spell spelllang=en_us
-  set nospell
+  autocmd FileType markdown,md setlocal spell spelllang=en,cjk
+  autocmd FileType text,textile setlocal spell spelllang=en,cjk
 endif
 
 " UI Layout {{{

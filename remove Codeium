@@ -162,7 +162,6 @@ nnoremap <leader>5 :UndotreeToggle<cr>
 " Toggle Tagbar
 nmap <leader>8 :TagbarToggle<CR>
 
-
 " Toggle Copilot Chat
 nnoremap <leader>gc :CopilotChat<CR>
 vnoremap <leader>gx :CopilotChatExplain<CR>
@@ -170,6 +169,8 @@ vnoremap <leader>gf :CopilotChatFix<CR>
                                   
 " Required by nvim-colorizer
 set termguicolors
+
+" au BufNewFile,BufRead * let b:copilot_enabled = 0
 
 " Setup Neovim plugins with not many configurations
 if has('nvim')
