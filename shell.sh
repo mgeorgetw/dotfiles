@@ -18,6 +18,17 @@ set_ps1 "eternallogger" || true
 export VISUAL=nvim
 export EDITOR=nvim
 
+# 1. Standard Homebrew setup (automatically handles /bin and /sbin)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+# Homebrew and Local Paths (replaces fish_add_path)
+export PATH="/users/zhaoyuan/.local/bin:$PATH"
+
+# Environment Variables
+export LC_ALL=en_US.utf-8
+export fzf_default_command='rg --files'
+export fzf_ctrl_t_command="command find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
+export N8N_RESTRICT_FILE_ACCESS_TO="/Users/zhaoyuan/Git/AIAgentsN8N"
+
 # Allow us to use Ctrl+S to perform forward search, by disabling the start and
 # stop output control signals, which are not needed on modern systems.
 stty -ixon
@@ -60,6 +71,9 @@ alias rm='rm -i'
 # Start a web server
 alias serve="python3 -m http.server 3000"
 
+# Find video files, select one, and play it with IINA.
+alias play='find . -type f \( -name "*.mkv" -o -name "*.mp4" -o -name "*.avi" \) | fzf | xargs -I {} open -a IINA "{}"'
+
 # Restart the shell.
 restart-shell() {
   exec -l $SHELL
@@ -69,3 +83,6 @@ restart-shell() {
 function mkd {
   mkdir -p -- "$1" && cd -P -- "$1";
 }
+
+# Initialize Fast Node Manager (fnm)
+eval "$(fnm env --use-on-cd)"

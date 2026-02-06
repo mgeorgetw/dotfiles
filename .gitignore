@@ -9,3 +9,4 @@ gitconfig
 vim/init.vim
 vim/spell/*
 vim/vimrc
+.DS_Store

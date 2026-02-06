@@ -1,1 +1,0 @@
-/Users/zhaoyuan/dotfiles/shell.d
