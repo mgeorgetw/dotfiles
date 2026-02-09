@@ -1,4 +1,3 @@
-*.swp
 *~
 vim/.netrwhist
 vim/bundle/
@@ -10,3 +9,4 @@ vim/init.vim
 vim/spell/*
 vim/vimrc
 .DS_Store
+shell_aliases

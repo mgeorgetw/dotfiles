@@ -60,19 +60,8 @@ HISTCONTROL="ignorespace:ignoredup" # Ignore starting with space or duplicates?
 export HISTIGNORE="ls:history"     # Any commands we want to not record?
 # HISTTIMEFORMAT='%F %T '            # Do we want a timestamp for commands?
 
-# some ls aliases
-alias ll='ls -GlF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Always run 'rm' in interactive mode.
-alias rm='rm -i'
-
-# Start a web server
-alias serve="python3 -m http.server 3000"
-
-# Find video files, select one, and play it with IINA.
-alias play='find . -type f \( -name "*.mkv" -o -name "*.mp4" -o -name "*.avi" \) | fzf | xargs -I {} open -a IINA "{}"'
+# Source custom aliases
+[ -f ~/.shell_aliases ] && source ~/.shell_aliases
 
 # Restart the shell.
 restart-shell() {
