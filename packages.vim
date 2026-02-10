@@ -180,7 +180,22 @@ local modules = {
   }},
   { name = "gitsigns", setup = {} },
   { name = "copilot_cmp", setup = {} },
-  { name = "CopilotChat", setup = {} },
+  { name = "CopilotChat", setup = {
+      model = 'claude-haiku-4.5',           -- AI model to use
+      temperature = 0.1,           -- Lower = focused, higher = creative
+      window = {
+        layout = 'vertical', -- 'vertical', 'horizontal', 'float'
+        width = 0.5,
+        title = '🤖 AI Assistant',
+        zindex = 100, -- Ensure window stays on top
+      },
+      headers = {
+        user = '👤 You',
+        assistant = '🤖 Copilot',
+        tool = '🔧 Tool',
+      },
+      auto_insert_mode = true,     -- Enter insert mode when opening
+  } },
   { name = "colorizer", setup = {
       'css';
       'javascript';
